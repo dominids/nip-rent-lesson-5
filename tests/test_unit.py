@@ -40,7 +40,7 @@ def test_apartment_from_dict():
     assert apartment.area_m2 == data["area_m2"]
     assert len(apartment.rooms) == len(data["rooms"])
 
-    data['area_m2'] = "25m2" # Invalid field
+    data['area_m2'] = "25m2"
     with pytest.raises(ValidationError):
         wrong_apartment = Apartment(**data)
 
@@ -82,5 +82,5 @@ def test_tenant_from_dict():
     assert tenant.rent_pln == data["rent_pln"]
 
     with pytest.raises(ValidationError):
-        data['rent_pln'] = "1500PLN" # Invalid field
+        data['rent_pln'] = "1500PLN"
         wrong_tenant = Tenant(**data)
