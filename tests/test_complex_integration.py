@@ -63,6 +63,11 @@ BILLS_POLANKA_JAN = [
     {"amount_pln": 300.0, "date_due": "2025-02-12", "settlement_year": 2025, "settlement_month": 1, "apartment": "apart-polanka", "type": "electricity"}
 ]
 
+BILLS_SINGLE_JAN = [
+    {"amount_pln": 900.0, "date_due": "2025-02-15", "settlement_year": 2025, "settlement_month": 1, "apartment": "apart-single", "type": "rent"},
+    {"amount_pln": 300.0, "date_due": "2025-02-12", "settlement_year": 2025, "settlement_month": 1, "apartment": "apart-single", "type": "electricity"}
+]
+
 
 @pytest.fixture
 def manager_with_test_data(tmp_path):
@@ -193,7 +198,7 @@ def manager_for_tenant_settlements(tmp_path):
 def manager_single_tenant(tmp_path):
     apartments = {"apart-single": APARTMENT_SINGLE}
     tenants = {"tenant-single": TENANT_ALICE}
-    return create_manager(tmp_path, apartments, tenants, [], BILLS_POLANKA_JAN)
+    return create_manager(tmp_path, apartments, tenants, [], BILLS_SINGLE_JAN)
 
 
 class TestGetTenantSettlements:
