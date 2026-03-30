@@ -25,9 +25,8 @@ class Manager:
         return True
     
     def get_apartment_costs(self, apartment_key: str, year: int, month: int) -> float:
-
         if apartment_key not in self.apartments:
-            return 0
+            return 0.0
         
         total_cost = sum(
             bill.amount_pln 
